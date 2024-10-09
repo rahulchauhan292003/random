@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-const Create = () => {
+const Create = ({ todo, setTodo }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  console.log(title, description);
 
-  const handleSubmit = async () => {
+  const handleClick = async () => {
     try {
       const response = await axios.post(
         "http://localhost:8000/api/users/create",
@@ -39,7 +38,7 @@ const Create = () => {
         value={description}
       />
       <div>
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleClick}>Submit</button>
       </div>
     </div>
   );

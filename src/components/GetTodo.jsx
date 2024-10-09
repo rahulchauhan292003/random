@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 
-const GetTodo = () => {
-  const [todo, setTodo] = useState([]);
+const GetTodo = ({todo, setTodo}) => {
+  
 
   useEffect(() => {
     const fetchData = async () => {
