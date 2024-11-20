@@ -1,18 +1,27 @@
 import React from 'react'
-import GetTodo from './components/GetTodo'
-import Create from './components/Create'
-import { useState } from 'react'
-
+import { BrowserRouter, Route,Routes } from 'react-router-dom'
+import Home from './components/Home'
+import Login from './components/Login'
+import SignUp from './components/SignUp'
+import Error from './components/Error'
+import First from './components/First'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
-  const [todo, setTodo] = useState([]);
-  
-
   return (
-    <div>
-      <Create todo={todo} setTodo={setTodo} />   
-      <GetTodo  todo={todo} setTodo={setTodo} />
-    </div>
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<First/>}/>
+      <Route path='/home' element={<Home/>}/>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/signUp' element={<SignUp/>}/>
+      <Route path='*' element={<Error/>}/>
+    </Routes>
+    <Toaster/>
+    </BrowserRouter>
+      
+    </>
   )
 }
 
